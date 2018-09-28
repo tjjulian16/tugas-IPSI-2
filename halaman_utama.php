@@ -13,7 +13,7 @@
 				<a href="cari.php">Mencari Buku</a>
 			</div>
 			<div class="col-md-5"  style="border:1px solid grey; border-radius: 20px; padding: 2%;">
-				<a href="">Meminjam Buku</a>
+				<a href="pinjam.php">Meminjam Buku</a>
 			</div>
 		</div>
 	</div>

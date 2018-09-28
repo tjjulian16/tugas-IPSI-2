@@ -29,8 +29,13 @@ function cari( $keyword ) {
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<div class="container" style=" padding: 8%; padding-top: 2%; margin: 10%; border:2px solid #12a8bb;">
-	<h2 style="text-align: center; margin-bottom: 10%;">Form Pencarian </h2>
+	<div class="text-center" style="margin-top: 5%;">
+		<h2>Pinjam Buku</h2>
+	</div>
+<div class="container" style=" padding: 8%; padding-top: 2%; margin: 10%; margin-top: 5%; border:2px solid #12a8bb;">
+	<div class="row">
+	<div class="col-md-6">
+		<h2 style="text-align: center; margin-bottom: 10%;">Cari Buku </h2>
 		<div class="col-md-12">
 			<div class="row" style="text-align: center;">
 			<div class="col-md-12" style=" border-radius: 20px; margin-right: 10%; padding: 2%;">
@@ -47,6 +52,7 @@ function cari( $keyword ) {
                   <tr>
                   	 <th scope="col">ID BUKU</th>
                     <th scope="col">JUDUL BUKU</th>
+                    <th scope="col">PINJAM BUKU</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -68,6 +74,7 @@ function cari( $keyword ) {
                     
                     <td class="text-center"><?php echo $hasil['id'] ?></td>
                     <td><?php echo $hasil['judul']?></td>
+                    <td><a href="<?php echo "add-cart.php?id=$hasil[id]"; ?>">Pinjam</a></td>
                    
                   </tr>
                   <?php
@@ -81,16 +88,68 @@ function cari( $keyword ) {
               </table>
 
             </div>
-            <a href="cari.php">Cari lagi?</a>
-            <br><br>
-            <a href="halaman_utama.php">Kembali Ke Halaman Utama</a>
+            <a href="pinjam.php">Cari lagi?</a>
+            
+           
           </div>
         </div>
 			</div>
 			
 		</div>
 	</div>
+	<div class="col-md-6">
+		 <div class="col-md-12 col-sm-12" style="text-align: center;">
+		 	<h2>Cart Buku Pinjaman</h2>
+            <div class="table-responsive" style="margin-top: 10%;">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                  	 <th scope="col">ID BUKU</th>
+                    <th scope="col">JUDUL BUKU</th>
+                    <th scope="col">HAPUS BUKU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php	
+                  
+                  if (isset($_GET['cart'])) {
+                  $bukuDipinjam = $_GET['cart'];
+                  print_r($$bukuDipinjam[0]);
+                   for ($i=0; $i < count($bukuDipinjam['id']); $i++) { 
+                    ?>
+                    <tr >
+                    
+                    <td class="text-center"><?php echo $bukuDipinjam['id'] ?></td>
+                    <td><?php echo $bukuDipinjam['judul']?></td>
+                    <td><a href="<?php echo "add-cart.php?id=$hasil[id]"; ?>">Hapus</a></td>
+                   
+                  </tr>
+                  <?php
+                   }
+                  }
+                   
+
+                 ?>
+
+					
+                  
+                </tbody>
+              </table>
+
+            </div>
+          
+            
+           
+          </div>
+
+	</div>
+
+	</div>
 </div>
+<div class="text-center">
+	 <a href="halaman_utama.php">Kembali Ke Halaman Utama</a>
+</div>
+
 </body>
 </html>
 
