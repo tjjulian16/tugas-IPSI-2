@@ -74,7 +74,7 @@ function cari( $keyword ) {
                     
                     <td class="text-center"><?php echo $hasil['id'] ?></td>
                     <td><?php echo $hasil['judul']?></td>
-                    <td><a href="<?php echo "add-cart.php?id=$hasil[id]"; ?>">TAMBAH</a></td>
+                    <td><a href="<?php echo "pinjam\add-cart.php?id=$hasil[id]"; ?>">TAMBAH</a></td>
                    
                   </tr>
                   <?php

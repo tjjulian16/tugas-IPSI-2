@@ -1,24 +1,4 @@
 <?php  
-
-function cari( $keyword ) {
-		$link = mysqli_connect("localhost", "root", "", "perpustakaan");
-		$query ="SELECT id, judul FROM buku WHERE judul LIKE '%$keyword%'";
-		$result = mysqli_query( $link, $query );
-		$listBuku = null;
-		while ( $row = mysqli_fetch_array( $result ) ) {
-		
-
-		if($row !== null){
-			$listBuku = $row;
-		}
-
-		}
-		mysqli_close( $link );
-		return $listBuku;
-		
-
-}
-
 session_start();
 ?>
 
@@ -69,10 +49,10 @@ session_start();
                   </tr>
 						<?php
 					}
-                   for ($i=0; $i < count($hasil); $i++) { 
+                    
                     ?>
                   <?php
-                   }}}
+                   }}
 
                   ?>
 
@@ -84,14 +64,37 @@ session_start();
             </div>
             
             <br><br>
-            <form action="" method="post" class="col-md-12">
+            <form action="save-cart.php" method="post" class="col-md-12">
             	<label>Masukkan Jumlah Hari Peminjaman</label>
             	<input type="text" name="hari" class="form-control">
             	<br>
-            	<button type="submit" class="btn btn-primary">Simpan</button>
+            	<button type="submit" class="btn btn-primary">Pinjam</button>
             </form>
             <br>
-            <a href="halaman_utama.php">Kembali Ke Halaman Utama</a>
+            <?php 
+            if(isset($_GET['hasil'])){
+
+               if($_GET['hasil'] == 'berhasil'){
+              ?>
+              <h3>Data Peminjaman Berhasil Disimpan!</h3>
+              <?php
+            }
+            else{
+              ?>
+              <h3>Data Peminjaman Gagal Disimpan!</h3>
+              <?php
+            }
+            }
+            ?>
+
+            
+           
+            
+            
+            <br>
+            <a href="../halaman_utama.php">Kembali Ke Halaman Utama</a>
+            <br><br>
+            <a href="../pinjam.php">Halaman Pinjam</a>
           </div>
         </div>
 			</div>
