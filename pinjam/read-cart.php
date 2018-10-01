@@ -64,7 +64,7 @@ session_start();
                     <tr >
                     <td class="text-center"><?php echo $cetak['id'] ?></td>
                     <td><?php echo $cetak['judul']?></td>
-                    <td><a href="">Hapus</a></td>
+                    <td><a href="<?php  echo "delete-cart.php?id=$cetak[id]";?>">Hapus</a></td>
                    
                   </tr>
 						<?php
