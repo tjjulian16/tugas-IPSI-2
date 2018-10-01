@@ -34,7 +34,7 @@ function cari( $keyword ) {
 	</div>
 <div class="container" style=" padding: 8%; padding-top: 2%; margin: 10%; margin-top: 5%; border:2px solid #12a8bb;">
 	<div class="row">
-	<div class="col-md-6">
+	<div class="col-md-12">
 		<h2 style="text-align: center; margin-bottom: 10%;">Cari Buku </h2>
 		<div class="col-md-12">
 			<div class="row" style="text-align: center;">
@@ -52,7 +52,7 @@ function cari( $keyword ) {
                   <tr>
                   	 <th scope="col">ID BUKU</th>
                     <th scope="col">JUDUL BUKU</th>
-                    <th scope="col">PINJAM BUKU</th>
+                    <th scope="col">ADD TO CART</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -74,7 +74,7 @@ function cari( $keyword ) {
                     
                     <td class="text-center"><?php echo $hasil['id'] ?></td>
                     <td><?php echo $hasil['judul']?></td>
-                    <td><a href="<?php echo "add-cart.php?id=$hasil[id]"; ?>">Pinjam</a></td>
+                    <td><a href="<?php echo "add-cart.php?id=$hasil[id]"; ?>">TAMBAH</a></td>
                    
                   </tr>
                   <?php
@@ -97,52 +97,7 @@ function cari( $keyword ) {
 			
 		</div>
 	</div>
-	<div class="col-md-6">
-		 <div class="col-md-12 col-sm-12" style="text-align: center;">
-		 	<h2>Cart Buku Pinjaman</h2>
-            <div class="table-responsive" style="margin-top: 10%;">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                  	 <th scope="col">ID BUKU</th>
-                    <th scope="col">JUDUL BUKU</th>
-                    <th scope="col">HAPUS BUKU</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php	
-                  
-                  if (isset($_GET['cart'])) {
-                  $bukuDipinjam = $_GET['cart'];
-                  print_r($$bukuDipinjam[0]);
-                   for ($i=0; $i < count($bukuDipinjam['id']); $i++) { 
-                    ?>
-                    <tr >
-                    
-                    <td class="text-center"><?php echo $bukuDipinjam['id'] ?></td>
-                    <td><?php echo $bukuDipinjam['judul']?></td>
-                    <td><a href="<?php echo "add-cart.php?id=$hasil[id]"; ?>">Hapus</a></td>
-                   
-                  </tr>
-                  <?php
-                   }
-                  }
-                   
 
-                 ?>
-
-					
-                  
-                </tbody>
-              </table>
-
-            </div>
-          
-            
-           
-          </div>
-
-	</div>
 
 	</div>
 </div>
