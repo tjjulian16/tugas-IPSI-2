@@ -23,7 +23,7 @@ function read(){
                   <tr>
                      <th scope="col">ID BUKU</th>
                     <th scope="col">JUDUL BUKU</th>
-                    <th scope="col">HAPUS BUKU</th>
+                    <th scope="col">TAMBAH BUKU</th>
                   </tr>
                 </thead>
                 <tbody>
