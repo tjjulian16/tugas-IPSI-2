@@ -1,9 +1,11 @@
 <?php
-session_start();
+
+function save(){
+	session_start();
 
 $date = date('Y-m-d');
 $cart = $_SESSION['cart'];
-$hari = $_POST['hari'];
+$hari = $_GET['hari'];
 $link = mysqli_connect("localhost", "root", "admin", "perpustakaan");
 		$query = "INSERT INTO peminjaman (tanggal) VALUES ('$date');";
 		$query .= "SET @id_peminjaman = LAST_INSERT_ID();";
@@ -14,11 +16,13 @@ $link = mysqli_connect("localhost", "root", "admin", "perpustakaan");
 		$result = mysqli_multi_query( $link, $query );
 
 		if($result){
-			header('location:read-cart.php?hasil=berhasil');
+			header('location:pinjam.php?fitur=read&hasil=berhasil');
 			session_destroy();
 		}
 		else{
-			header('location:read-cart.php?cart=ok&hasil=gagal');
+			header('location:pinjam.php?fitur=read&cart=ok&hasil=gagal');
 		}
+
+}
 
 ?>

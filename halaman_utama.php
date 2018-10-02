@@ -10,10 +10,10 @@
 		<div class="col-md-12">
 			<div class="row" style="text-align: center;">
 			<div class="col-md-5" style="border:1px solid grey; border-radius: 20px; margin-right: 10%; padding: 2%;">
-				<a href="cari.php">Mencari Buku</a>
+				<a href="<?php echo "fitur.php?fitur=cari"; ?>">Mencari Buku</a>
 			</div>
 			<div class="col-md-5"  style="border:1px solid grey; border-radius: 20px; padding: 2%;">
-				<a href="pinjam.php">Meminjam Buku</a>
+				<a href="<?php echo "fitur.php?fitur=pinjam"; ?>"">Meminjam Buku</a>
 			</div>
 		</div>
 	</div>

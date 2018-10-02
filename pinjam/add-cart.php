@@ -1,6 +1,7 @@
 	<?php
-session_start();
-$id = $_GET['id'];
+
+	function add($id){
+		session_start();
 $link = mysqli_connect("localhost", "root", "admin", "perpustakaan");
 		$query ="SELECT id, judul FROM buku WHERE id LIKE '$id'";
 		$result = mysqli_query( $link, $query );
@@ -16,5 +17,7 @@ $link = mysqli_connect("localhost", "root", "admin", "perpustakaan");
 			$_SESSION['cart'] = $cartPinjam;
 		}
 		
-		header('location:read-cart.php?cart=ok');
+		header('location:pinjam.php?cart=ok');
+	}
+
 ?>

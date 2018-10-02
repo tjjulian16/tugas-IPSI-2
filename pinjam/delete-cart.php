@@ -1,6 +1,7 @@
 <?php 
-session_start();
-$id = $_GET['id'];
+
+function delete($id){
+	session_start();
 $cartDelete = $_SESSION['cart'];
 $cartBaru = array();
 foreach ($cartDelete as $delete) {
@@ -15,6 +16,8 @@ foreach ($cartDelete as $delete) {
 $_SESSION['cart'] = $cartBaru;
 
 
-header('location:read-cart.php?cart=ok');
+header('location:pinjam.php?fitur=read&cart=ok');
+}
+
 
 ?>
